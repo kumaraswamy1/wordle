@@ -38,15 +38,15 @@ export const Wordle = () => {
 	};
 
 	useEffect(() => {
-		window.addEventListener("keyup", handleKeypress);
+		window.addEventListener("keydown", handleKeypress);
 
 		if (isCorrect) {
-			window.removeEventListener("keyup", handleKeypress);
+			window.removeEventListener("keydown", handleKeypress);
 		}
 		if (turn > 5) {
-			window.removeEventListener("keyup", handleKeypress);
+			window.removeEventListener("keydown", handleKeypress);
 		}
-		return () => window.removeEventListener("keyup", handleKeypress);
+		return () => window.removeEventListener("keydown", handleKeypress);
 	}, [handleKeypress, isCorrect, turn]);
 
 	return (
